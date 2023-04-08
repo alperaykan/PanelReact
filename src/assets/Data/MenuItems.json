@@ -1,0 +1,148 @@
+{
+	"data": [
+		{
+      "path": "/app/anasayfa",
+      "menu_title": "sidebar.anasayfa",
+      "child_routes": null,
+      "icon": "apps",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.ilkSayfa",
+      "path": "/app/ilksayfa",
+      "child_routes": null,
+      "icon": "apps",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.etiketler",
+      "path": "/app/etiketler",
+      "child_routes": null,
+      "icon": "tag",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.yönetim",
+      "path": "/app/yönetim/",
+      "icon": "label",
+      "menu":"yönetim",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true,
+      "child_routes": [
+        {
+          "path": "/app/yönetim/performanz",
+          "menu_title": "sidebar.performanz",
+          "icon": "equalizer",
+          "fullPageMenu": false,
+          "isMenuOpen": false,
+          "third_child_routes": null
+        },
+        {
+          "path": "/app/yönetim/cihazbilgileri",
+          "menu_title": "sidebar.cihazbilgileri",
+          "icon": "equalizer",
+          "fullPageMenu": false,
+          "isMenuOpen": false,
+          "third_child_routes": null
+        },
+        {
+          "path": "/app/yönetim/bilgi",
+          "menu_title": "sidebar.bilgi",
+          "icon": "equalizer",
+          "fullPageMenu": false,
+          "isMenuOpen": false,
+          "third_child_routes": null
+        },
+        {
+          "path": "/app/yönetim/kullanicilar",
+          "menu_title": "sidebar.kullanicilar",
+          "icon": "equalizer",
+          "fullPageMenu": false,
+          "isMenuOpen": false,
+          "third_child_routes": null
+        }
+      ]
+    },
+    {
+      "menu_title": "sidebar.raporlar",
+      "path": "/app/raporlar",
+      "child_routes": null,
+      "icon": "assessment",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.saglikRapor",
+      "path": "/app/saglikraporlar",
+      "child_routes": null,
+      "icon": "healing",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.sporcular",
+      "path": "/app/sporcular",
+      "child_routes": null,
+      "icon": "sports",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.senaryo",
+      "path": "/app/senaryo",
+      "child_routes": null,
+      "icon": "book",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.cihazlar",
+      "path": "/app/cihazlar",
+      "child_routes": null,
+      "icon": "devices",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.yetki",
+      "path": "/app/yetki",
+      "child_routes": null,
+      "icon": "report",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    },
+    {
+      "menu_title": "sidebar.teknik",
+      "path": "/app/teknik",
+      "child_routes": null,
+      "icon": "settings",
+      "fullPageMenu": false,
+      "isMenuOpen": false,
+      "third_child_routes": null,
+      "exact": true
+    }
+	]
+}
