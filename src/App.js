@@ -12,9 +12,6 @@ import "react-toastify/dist/ReactToastify.css";
 // App Conatiner
 import App from './container/App';
 
-// Firebase
-import './firebase';
-
 // Hulk CSS
 import './lib/hulkCss';
 

@@ -4,15 +4,15 @@ import { TextField, Button, LinearProgress, Fab, Box, Typography } from "@materi
 import Grid from '@material-ui/core/Grid';
 
 // redux action
-import {
-	signinUserWithFirebase,
-	onEmailChanged,
-	onPasswordChanged,
-	signinUserWithGoogle,
-	signinUserWithFacebook,
-	signinUserWithTwitter,
-	signinUserWithGithub
-} from 'redux/actions';
+// import {
+// 	signinUserWithFirebase,
+// 	onEmailChanged,
+// 	onPasswordChanged,
+// 	signinUserWithGoogle,
+// 	signinUserWithFacebook,
+// 	signinUserWithTwitter,
+// 	signinUserWithGithub
+// } from 'redux/actions';
 
 class Login extends Component {
 	//constructor
@@ -157,7 +157,7 @@ class Login extends Component {
 											}
 										</Box>
 										<Box mb="40px" pt="20px">
-											<Button
+											{/* <Button
 												color="primary"
 												className="btn-block blockBtn w-100"
 												variant="contained"
@@ -165,12 +165,12 @@ class Login extends Component {
 												onClick={this.onUserLogin.bind(this)}
 											>
 												Sign In
-											</Button>
+											</Button> */}
 										</Box>
 										<Box fontSize="subtitle2.fontSize">
 											<Box style={{ cursor:'pointer'}} color="primary.main" onClick={() => this.onForgotPassword()}>Forgot password?</Box>
 										</Box>
-										<div className="social-login-wrapper">
+										{/* <div className="social-login-wrapper">
 											<Typography variant="body2">Sign in with</Typography>
 											<div className="social-list">
 												<Fab size="small" variant="circular" className="text-white facebook-color"
@@ -194,10 +194,10 @@ class Login extends Component {
 													<i className="fab fa-github-alt"></i>
 												</Fab>
 											</div>
-										</div>
+										</div> */}
 										<div className="or-sign-up">
 											<Typography variant="body2">Not Having an Account</Typography>
-											<Button variant="outlined" size="large" color="primary" onClick={() => this.onUserSignUp()}>Sign Up</Button>
+											{/* <Button variant="outlined" size="large" color="primary" onClick={() => this.onUserSignUp()}>Sign Up</Button> */}
 										</div>
 									</form>
 								</div>
@@ -224,7 +224,7 @@ const mapStateToProps = ({ authUser, settings }) => {
 	return { loading, email, password, error, isDarkModeActive };
 };
 
-export default connect(mapStateToProps, {
+export default connect(mapStateToProps, /*{
 	signinUserWithFirebase,
 	onEmailChanged,
 	onPasswordChanged,
@@ -232,4 +232,4 @@ export default connect(mapStateToProps, {
 	signinUserWithFacebook,
 	signinUserWithTwitter,
 	signinUserWithGithub
-})(Login);
+}*/)(Login);

@@ -5,17 +5,6 @@ import { connect } from 'react-redux';
 import { TextField, Button, Fab, Box, Typography, Divider } from "@material-ui/core";
 import { CustomCard } from 'components/GlobalComponents';
 
-// redux action
-import {
-	signinUserWithFirebase,
-	onEmailChanged,
-	onPasswordChanged,
-	signinUserWithGoogle,
-	signinUserWithFacebook,
-	signinUserWithTwitter,
-	signinUserWithGithub,
-} from 'redux/actions';
-
 class SigninFirebase extends Component {
 	//constructor
 	constructor(props) {
@@ -31,50 +20,50 @@ class SigninFirebase extends Component {
 	/**
 	 * Function to login user using Firebase
 	 */
-	async onUserLogin() {
-		const { email, password } = this.props;
-		let fieldValidationErrors = this.state.formErrors;
-		// if (email === "") { fieldValidationErrors.blankEmail = true; }
-		if (password === "") { fieldValidationErrors.blankPassword = true; }
-		// if (!this.validateEmail(email)) { fieldValidationErrors.invalidEmail = true; }
-		await this.setState({
-			formErrors: fieldValidationErrors
-		})
-		if (email !== '' && password !== '') {
-			var userDetails = { email, password }
-			this.props.signinUserWithFirebase(userDetails, this.props.history);
-			//this.props.signInWithAuthToken(userDetails, this.props.history);
-		}
-	}
+	// async onUserLogin() {
+	// 	const { email, password } = this.props;
+	// 	let fieldValidationErrors = this.state.formErrors;
+	// 	// if (email === "") { fieldValidationErrors.blankEmail = true; }
+	// 	if (password === "") { fieldValidationErrors.blankPassword = true; }
+	// 	// if (!this.validateEmail(email)) { fieldValidationErrors.invalidEmail = true; }
+	// 	await this.setState({
+	// 		formErrors: fieldValidationErrors
+	// 	})
+	// 	if (email !== '' && password !== '') {
+	// 		var userDetails = { email, password }
+	// 		this.props.signinUserWithFirebase(userDetails, this.props.history);
+	// 		this.props.signInWithAuthToken(userDetails, this.props.history);
+	// 	}
+	// }
 
-	/**
-	 * Function to detect email changes
-	 */
-	onEmailChanged(e) {
-		let fieldValidationErrors = this.state.formErrors;
-		fieldValidationErrors.blankEmail = false;
-		// fieldValidationErrors.invalidEmail = false;
-		this.setState({ formErrors: fieldValidationErrors })
-		this.props.onEmailChanged(e.target.value);
-	}
+	// /**
+	//  * Function to detect email changes
+	//  */
+	// onEmailChanged(e) {
+	// 	let fieldValidationErrors = this.state.formErrors;
+	// 	fieldValidationErrors.blankEmail = false;
+	// 	// fieldValidationErrors.invalidEmail = false;
+	// 	this.setState({ formErrors: fieldValidationErrors })
+	// 	this.props.onEmailChanged(e.target.value);
+	// }
 
-	/**
-	 * Function to detect login password changes
-	 */
-	onPasswordChanged(e) {
-		let fieldValidationErrors = this.state.formErrors;
-		fieldValidationErrors.blankPassword = false;
-		this.setState({ formErrors: fieldValidationErrors });
-		this.props.onPasswordChanged(e.target.value);
-	}
+	// /**
+	//  * Function to detect login password changes
+	//  */
+	// onPasswordChanged(e) {
+	// 	let fieldValidationErrors = this.state.formErrors;
+	// 	fieldValidationErrors.blankPassword = false;
+	// 	this.setState({ formErrors: fieldValidationErrors });
+	// 	this.props.onPasswordChanged(e.target.value);
+	// }
 
-	/**
-	* Function is use for check the email validation.
-	*/
-	validateEmail(email) {
-		let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-		return emailValid;
-	}
+	// /**
+	// * Function is use for check the email validation.
+	// */
+	// validateEmail(email) {
+	// 	let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+	// 	return emailValid;
+	// }
 
 	/**
 	 * Function to show error
@@ -150,14 +139,14 @@ class SigninFirebase extends Component {
 											type="password"
 											value={password}
 											error={blankPassword || error ? true : false}
-											onChange={this.onPasswordChanged.bind(this)}
+											// onChange={this.onPasswordChanged.bind(this)}
 										/>
 										{blankPassword &&
 											<Box component="span" color="error.main" textAlign="left" display="block" fontSize="subtitle2.fontSize" pt={1}>Password cannot be empty</Box>
 										}
 									</Box>
 									<Box mb="20px">
-										<Button
+										{/* <Button
 											color="primary"
 											className="btn-block blockBtn w-100"
 											variant="contained"
@@ -165,10 +154,10 @@ class SigninFirebase extends Component {
 											onClick={this.onUserLogin.bind(this)}
 										>
 											Sign In
-										</Button>
+										</Button> */}
 									</Box>
 									<Typography variant="subtitle2">Sign in with</Typography>
-									<div className="social-login-wrapper">
+									{/* <div className="social-login-wrapper">
 										<div className="social-list">
 											<Fab size="small" variant="circular" className="text-white facebook-color"
 												onClick={() => this.props.signinUserWithFacebook(this.props.history)}
@@ -191,7 +180,7 @@ class SigninFirebase extends Component {
 												<i className="fab fa-github-alt"></i>
 											</Fab>
 										</div>
-									</div>
+									</div> */}
 									<Divider></Divider>
 									<Box display="flex" justifyContent="center" alignItems="center" pt={2}>
 										<Box fontSize="subtitle2.fontSize" className="border-right" pr={1}>
@@ -218,11 +207,11 @@ const mapStateToProps = ({ authUser, settings }) => {
 };
 
 export default connect(mapStateToProps, {
-	signinUserWithFirebase,
-	onEmailChanged,
-	onPasswordChanged,
-	signinUserWithGoogle,
-	signinUserWithFacebook,
-	signinUserWithTwitter,
-	signinUserWithGithub
+	// signinUserWithFirebase,
+	// onEmailChanged,
+	// onPasswordChanged,
+	// signinUserWithGoogle,
+	// signinUserWithFacebook,
+	// signinUserWithTwitter,
+	// signinUserWithGithub
 })(SigninFirebase);

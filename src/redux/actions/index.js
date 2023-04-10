@@ -2,8 +2,6 @@
  * Redux Actions
  */
 
-// auth actions
-export * from './AuthActions'
 
 // chat actions
 export * from './ChatAppActions'

@@ -4,15 +4,15 @@ import { TextField, Button, Box, Typography, Checkbox } from "@material-ui/core"
 import { CustomCard } from 'components/GlobalComponents';
 
 // redux action
-import {
-	signinUserWithFirebase,
-	onEmailChanged,
-	onPasswordChanged,
-	signinUserWithGoogle,
-	signinUserWithFacebook,
-	signinUserWithTwitter,
-	signinUserWithGithub
-} from 'redux/actions';
+// import {
+// 	signinUserWithFirebase,
+// 	onEmailChanged,
+// 	onPasswordChanged,
+// 	signinUserWithGoogle,
+// 	signinUserWithFacebook,
+// 	signinUserWithTwitter,
+// 	signinUserWithGithub
+// } from 'redux/actions';
 
 class SignupFirebase extends Component {
 	//constructor
@@ -201,7 +201,7 @@ const mapStateToProps = ({ authUser, settings }) => {
 	return { loading, email, password, error, isDarkModeActive };
 };
 
-export default connect(mapStateToProps, {
+export default connect(mapStateToProps, /*{
 	signinUserWithFirebase,
 	onEmailChanged,
 	onPasswordChanged,
@@ -209,4 +209,4 @@ export default connect(mapStateToProps, {
 	signinUserWithFacebook,
 	signinUserWithTwitter,
 	signinUserWithGithub
-})(SignupFirebase);
+}*/)(SignupFirebase);

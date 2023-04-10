@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/styles';
 import { IconButton, List, ListItem, Button, ListSubheader, Typography, Popover, Tooltip, Avatar } from '@material-ui/core';
 
-// redux action
-import { hulkLogoutUserFirebase } from 'redux/actions';
+// // redux action
+// import { hulkLogoutUserFirebase } from 'redux/actions';
 
 const styles = theme => ({
 	root: {
@@ -64,7 +64,7 @@ class HeaderUserBlock extends Component {
 				anchorEl: null,
 			}
 		)
-		this.props.hulkLogoutUserFirebase();
+		// this.props.hulkLogoutUserFirebase();
 	}
 
 	render() {
@@ -112,9 +112,9 @@ class HeaderUserBlock extends Component {
 							}
 						>
 							<ListItem component="div" className="top-dropdown-menu--item d-block text-center">
-								<Button variant="contained" color="primary" onClick={this.logoutUser}>
+								{/* <Button variant="contained" color="primary" onClick={this.logoutUser}>
 									Sign out
-        						</Button>
+        						</Button> */}
 							</ListItem>
 						</List>
 					</Fragment>
@@ -128,6 +128,4 @@ const mapStateToProps = ({ settings }) => {
 	return settings;
 }
 
-export default withRouter(connect(mapStateToProps, {
-	hulkLogoutUserFirebase
-})(withStyles(styles)(HeaderUserBlock)));
+export default withRouter(connect(mapStateToProps)(withStyles(styles)(HeaderUserBlock)));

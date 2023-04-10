@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { TextField, Button, LinearProgress, Typography, Grid, Box, Checkbox } from "@material-ui/core";
 
 // redux action
-import {
-	signupUserWithFirebase,
-	onEmailChanged,
-	onPasswordChanged
-} from 'redux/actions';
+// import {
+// 	signupUserWithFirebase,
+// 	onEmailChanged,
+// 	onPasswordChanged
+// } from 'redux/actions';
 
 class Register extends Component {
 	//constructor
@@ -188,4 +188,4 @@ const mapStateToProps = ({ authUser, settings }) => {
 	return { loading, email, password, error, isDarkModeActive };
 };
 
-export default connect(mapStateToProps, { signupUserWithFirebase, onEmailChanged, onPasswordChanged })(Register);
+export default connect(mapStateToProps, /*{ signupUserWithFirebase, onEmailChanged, onPasswordChanged }*/)(Register);
