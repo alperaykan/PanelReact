@@ -1,9 +1,30 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function useSporcular() {
-    const [state, SetState] = useState();
+    const [sporcular,SetSporcular] = useState([]);
+    const [dolu, SetDolu] = useState(false);
+
+    useEffect(() => {
+      getSporcular();
+    },[])
+
+    const getSporcular = () => {
+      axios.get("https://apipanel.performa.nz/api/Sporcular").then(
+        (res) => {
+          SetSporcular(res.data.data);
+          SetDolu(true);
+          console.log(sporcular);
+          console.log(dolu);
+        }
+      )
+    };
+
   return (
-    state, SetState
+    sporcular,
+    SetSporcular,
+    dolu, 
+    SetDolu
   )
 }
 

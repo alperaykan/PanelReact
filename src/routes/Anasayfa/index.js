@@ -19,7 +19,6 @@ function Anasayfa() {
                     <Typography variant="h6" className="">
                       Sporcular
                     </Typography>
-                    {/* <Typography className=" font-sm">(Last 30 Days)</Typography> */}
                   </Box>
                   <Box mb="9px">
                     <Typography variant="h2" className=" font-weight-med">

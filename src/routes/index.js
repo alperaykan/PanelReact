@@ -67,7 +67,7 @@ const cihazlarLoader = Loadable({
 })
 
 const yetkiLoader = Loadable({
-	loader : () => import("routes/Yetki"),
+	loader : () => import("routes/Yetkiler"),
 	loading: () => <HulkPageLoader />
 })
 
