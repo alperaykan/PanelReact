@@ -5,7 +5,7 @@ import {Paper,  Container, Collapse , Box , Button , Table,TableBody, TableCell,
 import { withTheme } from '@material-ui/core/styles';
 import BasitSelect from 'components/SelfmadeComponents/BasitSelect';
 import InputWithLabel from 'components/SelfmadeComponents/InputWithLabel';
-import useIlkSayfa from './hook/useIlkSayfa';
+import useIlkSayfa from './useIlkSayfa';
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 

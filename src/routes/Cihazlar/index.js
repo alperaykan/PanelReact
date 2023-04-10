@@ -8,4 +8,4 @@ function Cihazlar() {
   )
 }
 
-export default Cihazlar
+export default Cihazlar;
