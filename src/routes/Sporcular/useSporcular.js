@@ -1,31 +1,50 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import {toast} from 'react-toastify';
+
 
 function useSporcular() {
-    const [sporcular,SetSporcular] = useState([]);
-    const [dolu, SetDolu] = useState(false);
+    const [response,SetResponse] = useState([]);
+    const [doldu, SetDoldu] = useState(false);
 
     useEffect(() => {
-      getSporcular();
+      const fetch = () => {
+        getSporcular();
+      }
+      fetch();
     },[])
 
-    const getSporcular = () => {
-      axios.get("https://apipanel.performa.nz/api/Sporcular").then(
+    const Detay = (e) => {
+      console.log(e);
+    }
+
+    const getSporcular = async () => {
+      await axios.get("https://apipanel.performa.nz/api/Sporcular").then(
         (res) => {
-          SetSporcular(res.data.data);
-          SetDolu(true);
-          console.log(sporcular);
-          console.log(dolu);
+          console.log(res);
+          console.log(res.data);
+          console.log(res.data.data);
+          var data = res.data.data;
+          SetResponse(data);
+          
+          if(data.length != 0){
+            SetDoldu(true);
+            console.log(response);
+          }
         }
-      )
+      ).catch(err => {
+          console.log(err);
+          toast.error(err)
+      })
     };
 
-  return (
-    sporcular,
-    SetSporcular,
-    dolu, 
-    SetDolu
-  )
+  return ({
+    response,
+    SetResponse,
+    doldu, 
+    SetDoldu,
+    Detay
+  })
 }
 
 export default useSporcular

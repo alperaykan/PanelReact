@@ -12,10 +12,11 @@ function Sporcular() {
       <Typography variant="h1" style={{ paddingLeft: "20px" }}>
         Sporcular
       </Typography>
-  
-        {controller.dolu
-          ? 
-          controller.sporcular.map((sporcu) => {
+
+      <>
+        {controller.doldu ? (
+          controller.response.map((sporcu) => {
+            <Container maxWidth="lg">
               <Grid container spacing={3} className="res-wa-row">
                 <Grid item xs={12} sm={12} md={3} className="res-wa-row--col">
                   <Box pt={3} px={2} pb={2}>
@@ -27,22 +28,24 @@ function Sporcular() {
                           </Typography>
                         </Box>
                         <Box mb="9px">
-                          <Button
-                            value={sporcu.id}
-                            onClick={(e) => controller.Detay(e.target.value)}
-                          >
-                            Detay
-                          </Button>
+                          {/* <Button
+                          value={sporcu.id}
+                          onClick={(e) => controller.Detay(e.target.value)}
+                        >
+                          Detay
+                        </Button> */}
                         </Box>
                       </CardContent>
                     </CustomCard>
                   </Box>
                 </Grid>
-              </Grid>;
-            })
-          : 
-          null}
-     
+              </Grid>
+            </Container>;
+          })
+        ) : (
+          <p>Olmadı be</p>
+        )}
+      </>
     </>
   );
 }
