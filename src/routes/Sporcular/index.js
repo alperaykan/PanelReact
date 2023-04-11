@@ -5,6 +5,7 @@ import { CustomCard} from 'components/GlobalComponents';
 import { SmallTitleBar } from 'components/GlobalComponents';
 import IntlMessages from 'Shared/util/IntlMessages';
 import TableWithPhoto from 'components/SelfmadeComponents/TableWithPhoto';
+import customTable from "assets/Data/CustomTable";
 
 function Sporcular() {
 
@@ -47,7 +48,7 @@ function Sporcular() {
     <>
       <SmallTitleBar title={<IntlMessages id="title.sporcular" />} center />
       <div style={{paddingLeft : "10rem" , paddingTop : "5rem"}}>
-        <TableWithPhoto columns={columns} />
+        <TableWithPhoto columns={columns} data={customTable.data} />
       </div>
     </>
   );

@@ -50,6 +50,7 @@ const TableWithPhoto = ({
     data,
     columns
 }) => {
+
   const [selectedRow, setSelectedRow] = useState({
     firstName: "Zachery",
     lastName: "Terrell",
@@ -66,58 +67,24 @@ const TableWithPhoto = ({
     }
   });
 
-
-//   const columns = [
-//     {
-//       title: "Avatar",
-//       field: "imageUrl",
-//       render: (rowData) => (
-//         <img
-//           alt="user-thumb"
-//           src={require(`assets/Images/avatars/${rowData.imageUrl}`).default}
-//           className="img-50 bdr-rad-50"
-//         />
-//       ),
-//     },
-//     { title: "First Name", field: "firstName" },
-//     { title: "Last Name", field: "lastName" },
-//     { title: "Email", field: "email" },
-//     {
-//       title: "Date Added",
-//       field: "dateAdded",
-//       render: (rowData) => (
-//         <div>
-//           <span className="thisIsClass">{rowData.dateAdded}</span>
-//           {rowData.icon ? (
-//             <span className="custom-table-arrow">
-//               <i className="material-icons">arrow_forward_ios</i>
-//             </span>
-//           ) : (
-//             <span></span>
-//           )}
-//         </div>
-//       ),
-//     },
-//   ];
-
   const [selectedRowForStyle, setSelectedRowForStyle] = useState(null);
 
-  const handleRowClick = (event, rowData) => {
-    let tableData = customTable.data;
+  const handleRowClick = (rowData) => {
+    // let tableData = customTable.data;
 
-    for (let i = 0; i < tableData.length; i++) {
-      if (tableData[i].icon === true) {
-        if (i === rowData.tableData.id) {
-          tableData[i].icon = true;
-        } else {
-          tableData[i].icon = false;
-        }
-      } else {
-        if (i === rowData.tableData.id) {
-          tableData[i].icon = true;
-        }
-      }
-    }
+    // for (let i = 0; i < tableData.length; i++) {
+    //   if (tableData[i].icon === true) {
+    //     if (i === rowData.tableData.id) {
+    //       tableData[i].icon = true;
+    //     } else {
+    //       tableData[i].icon = false;
+    //     }
+    //   } else {
+    //     if (i === rowData.tableData.id) {
+    //       tableData[i].icon = true;
+    //     }
+    //   }
+    // }
     setSelectedRow(rowData);
     setSelectedRowForStyle(rowData);
   };
@@ -139,11 +106,90 @@ const TableWithPhoto = ({
                     : "#FFF",
               }),
             }}
-            onRowClick={(e) => handleRowClick(e.target.value)}
+            onRowClick={(e) => {
+                console.log(e.target.value);
+                handleRowClick(e.target.value)}}
           />
         </Box>
       </Grid>
+      <Grid item xs={12} sm={12} md={4}>
+        <CustomCard cardClasses="preview-panel">
+          {selectedRow ? (
+            <>
+              <Box mb={2} textAlign="center">
+                <Avatar
+                  alt="user-thumb"
+                  className="avatar-wrap"
+                  src={
+                    require(`assets/Images/avatars/${selectedRow.imageUrl}`)
+                      .default
+                  }
+                />
+                <Box pl={2}>
+                  <Box fontWeight={500}>
+                    {selectedRow.firstName} {selectedRow.lastName}
+                  </Box>
+                  <Typography variant="subtitle2">
+                    {selectedRow.designation}
+                  </Typography>
+                </Box>
+              </Box>
+              <Box mb={2} textAlign="center">
+                <Tooltip title="Print" placement="bottom">
+                  <IconButton className="preview-icon-btn" variant="outlined">
+                    <i className="material-icons-outlined">print</i>
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Delete" placement="bottom">
+                  <IconButton className="preview-icon-btn" variant="outlined">
+                    <i className="material-icons">delete_outline</i>
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Edit" placement="bottom">
+                  <IconButton className="preview-icon-btn" variant="outlined">
+                    <i className="material-icons">edit</i>
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="PageView" placement="bottom">
+                  <IconButton className="preview-icon-btn" variant="outlined">
+                    <i className="material-icons-outlined">pageview</i>
+                  </IconButton>
+                </Tooltip>
+              </Box>
+              <Box mb={2} className="preview-content">
+                <Typography variant="body2">
+                  <span>Address :</span>
+                  <span>{selectedRow.address}</span>
+                </Typography>
+                <Typography variant="body2">
+                  <span>city : </span>
+                  <span>{selectedRow.city}</span>
+                </Typography>
+                <Typography variant="body2">
+                  <span>country :</span>
+                  <span>{selectedRow.country}</span>
+                </Typography>
+                <Typography variant="body2">
+                  <span>postal :</span>
+                  <span>{selectedRow.postal}</span>
+                </Typography>
+                <Typography variant="body2">
+                  <span>Contact No :</span>
+                  <span>{selectedRow.contactNo}</span>
+                </Typography>
+                <Typography variant="body2">
+                  <span>Last Modified :</span>
+                  <span>{selectedRow.lastModified}</span>
+                </Typography>
+              </Box>
+              {/* <Box textAlign="center">
+                <SocialIcons />
+              </Box> */}
+            </>
+          ) : null}
+        </CustomCard>
+      </Grid>
     </Grid>
-  )
+  );
 };
 export default withStyles(styles)(TableWithPhoto);

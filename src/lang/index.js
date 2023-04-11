@@ -11,6 +11,7 @@ import esLang from './entries/es_ES';
 import zhLang from './entries/zh-Hans-CN';
 import jaLang from './entries/ja_JA';
 import koLang from './entries/ko_KO';
+import trLang from './entries/tr_TR';
 
 const AppLocale = {
    en: enLang,
@@ -19,7 +20,8 @@ const AppLocale = {
    es: esLang,
    zh: zhLang,
    ja: jaLang,
-   ko: koLang
+   ko: koLang,
+   tr: trLang,
 };
 
 addLocaleData(AppLocale.en.data);
@@ -29,5 +31,6 @@ addLocaleData(AppLocale.ar.data);
 addLocaleData(AppLocale.es.data);
 addLocaleData(AppLocale.ja.data);
 addLocaleData(AppLocale.ko.data);
+addLocaleData(AppLocale.tr.data);
 
 export default AppLocale;
