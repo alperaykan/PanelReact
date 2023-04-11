@@ -15,6 +15,8 @@ const en_US = {
    "sidebar.yetki" : "Yetki",
    "sidebar.teknik" : "Teknik",
 
+   "title.sporcular" : "Sporcular",
+
 	"sidebar.fullpagemenu" : "Full Page Menu",
    "sidebar.videoPlayer" : "Video Player",
    "sidebar.level1": "Level 1",
@@ -81,6 +83,7 @@ const en_US = {
    "sidebar.fivezerozero": "500",
    "sidebar.timeline" : "Timeline",
    "sidebar.stepper" : "Stepper",
+  
 
 
    "widgets.newVisitors" : "New Visitors",
