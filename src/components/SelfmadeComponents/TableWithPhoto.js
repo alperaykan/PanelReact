@@ -44,50 +44,11 @@ const styles = theme => ({
 	}
 });
 
-
-
 const TableWithPhoto = ({
     data,
-    columns
+    columns,
+    selectedRow
 }) => {
-
-  const [selectedRow, setSelectedRow] = useState({
-    firstName: "Zachery",
-    lastName: "Terrell",
-    designation: "Web Developer",
-    city: "Chakwal",
-    postal: "352950",
-    address: "Ap #262-5976 Elementum Rd.",
-    country: "Virgin Islands",
-    imageUrl: "user-1.jpg",
-    contactNo: "9876543210",
-    lastModified: "17/3/2019",
-    tableData: {
-      id: 0
-    }
-  });
-
-  const [selectedRowForStyle, setSelectedRowForStyle] = useState(null);
-
-  const handleRowClick = (rowData) => {
-    // let tableData = customTable.data;
-
-    // for (let i = 0; i < tableData.length; i++) {
-    //   if (tableData[i].icon === true) {
-    //     if (i === rowData.tableData.id) {
-    //       tableData[i].icon = true;
-    //     } else {
-    //       tableData[i].icon = false;
-    //     }
-    //   } else {
-    //     if (i === rowData.tableData.id) {
-    //       tableData[i].icon = true;
-    //     }
-    //   }
-    // }
-    setSelectedRow(rowData);
-    setSelectedRowForStyle(rowData);
-  };
 
   return (
     <Grid container spacing={0} className="res-custom-table">
@@ -106,9 +67,9 @@ const TableWithPhoto = ({
                     : "#FFF",
               }),
             }}
-            onRowClick={(e) => {
-                console.log(e.target.value);
-                handleRowClick(e.target.value)}}
+            // onRowClick={(e) => {
+            //     console.log(e.data);
+            //     handleRowClick(e.target.value)}}
           />
         </Box>
       </Grid>
@@ -182,9 +143,6 @@ const TableWithPhoto = ({
                   <span>{selectedRow.lastModified}</span>
                 </Typography>
               </Box>
-              {/* <Box textAlign="center">
-                <SocialIcons />
-              </Box> */}
             </>
           ) : null}
         </CustomCard>
