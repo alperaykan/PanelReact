@@ -8,7 +8,8 @@ import {
   Avatar,
   Tooltip,
   IconButton,
-  withStyles
+  withStyles,
+  Collapse
 } from "@material-ui/core";
 
 //Data
@@ -47,7 +48,9 @@ const styles = theme => ({
 const SporcularTable = ({
     data,
     columns,
-    selectedRow
+    selectedRow,
+    collapseShow,
+    SetCollapseShow
 }) => {
 
   return (
@@ -73,7 +76,7 @@ const SporcularTable = ({
           />
         </Box>
       </Grid>
-      <Grid item xs={12} sm={12} md={4}>
+      {collapseShow ? <Grid item xs={12} sm={12} md={4}>
         <CustomCard cardClasses="preview-panel">
           {selectedRow ? (
             <>
@@ -146,7 +149,7 @@ const SporcularTable = ({
             </>
           ) : null}
         </CustomCard>
-      </Grid>
+      </Grid> : null}
     </Grid>
   );
 };

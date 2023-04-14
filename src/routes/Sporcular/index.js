@@ -1,15 +1,45 @@
 import React, { useMemo , useState} from 'react'
 import useSporcular from './useSporcular'
-import { Grid, Button , Box, Container, Typography, CardContent ,Tooltip, IconButton } from '@material-ui/core';
+import { Grid, Button , Box, Container, Typography, CardContent ,Tooltip, IconButton, Collapse } from '@material-ui/core';
 import { CustomCard} from 'components/GlobalComponents';
 import { SmallTitleBar } from 'components/GlobalComponents';
 import IntlMessages from 'Shared/util/IntlMessages';
-import TableWithPhoto from 'components/SelfmadeComponents/TableWithPhoto';
 import customTable from "assets/Data/CustomTable";
+import SporcularTable from "components/SelfmadeComponents/SporcularTable";
 
 function Sporcular() {
 
   const controller = useSporcular();
+  const [selectedRow, setSelectedRow] = useState({
+    id:"178",
+    firstName: "Camir",
+    lastName: "Yoğ",
+    designation: "Web Developer",
+    city: "Choke Me daddy",
+    postal: "352950",
+    address: "Ap #262-5976 Elementum Rd.",
+    country: "Bakir Adaları",
+    imageUrl: "user-1.jpg",
+    contactNo: "9876543210",
+    lastModified: "17/3/2019",
+    tableData: {
+      id: 0
+    }
+  });
+ 
+  const [collapseShow,SetCollapseShow] = useState(false);
+
+  const rowDataFunc = (rowData) => {
+    if(collapseShow){
+      SetCollapseShow(false);
+      setSelectedRow(rowData);
+      SetCollapseShow(true);
+    }
+    else{
+      setSelectedRow(rowData);
+      SetCollapseShow(true);
+    }
+  }
 
   const columns = useMemo(
     () => [
@@ -54,9 +84,7 @@ function Sporcular() {
                 value={rowData.id ? rowData.id : "acaba"}
                 className="preview-icon-btn"
                 variant="outlined"
-                onClick={() => 
-                  setSelectedRow(rowData)
-                }
+                onClick={() => rowDataFunc(rowData)}
               >
                 <i value className="material-icons-outlined">pageview</i>
               </IconButton>
@@ -65,33 +93,14 @@ function Sporcular() {
         ),
       },
     ],
-    []
+    [selectedRow]
   );
 
-  const [selectedRow, setSelectedRow] = useState({
-    id:"178",
-    firstName: "Camir",
-    lastName: "Yoğ",
-    designation: "Web Developer",
-    city: "Choke Me daddy",
-    postal: "352950",
-    address: "Ap #262-5976 Elementum Rd.",
-    country: "Bakir Adaları",
-    imageUrl: "user-1.jpg",
-    contactNo: "9876543210",
-    lastModified: "17/3/2019",
-    tableData: {
-      id: 0
-    }
-  });
-
-  const [selectedRowForStyle, setSelectedRowForStyle] = useState(null);
-  
   return (
     <>
       <SmallTitleBar title={<IntlMessages id="title.sporcular" />} center />
       <div style={{paddingLeft : "5rem" , paddingTop : "3rem"}}>
-        <TableWithPhoto columns={columns} data={customTable.data} selectedRow={selectedRow}/>
+        <SporcularTable columns={columns} data={customTable.data} selectedRow={selectedRow} collapseShow={collapseShow} SetCollapseShow={SetCollapseShow} />
       </div>
     </>
   );
